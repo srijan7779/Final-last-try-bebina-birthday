@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bebina 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Segoe UI', cursive;
+  background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 42px;
+  color: #c2185b;
+  margin: 20px 0 10px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4; }
+  to   { text-shadow: 0 0 25px #fff, 0 0 45px #ff1493; }
+}
+
+.surprise-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background: #ff1493;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.birthday-pic {
+  width: 230px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: none;
+}
+
+/* Cake */
+.cake {
+  position: relative;
+  width: 180px;
+  height: 120px;
+  margin: 40px auto;
+}
+
+.cake-base {
+  position: absolute;
+  bottom: 0;
+  width: 180px;
+  height: 70px;
+  background: linear-gradient(#5a3825, #3e2619);
+  border-radius: 8px;
+}
+
+.cake-top {
+  position: absolute;
+  bottom: 50px;
+  width: 180px;
+  height: 40px;
+  background: linear-gradient(#7a4a32, #5a3825);
+  border-radius: 8px 8px 0 0;
+}
+
+.icing {
+  position: absolute;
+  bottom: 80px;
+  width: 180px;
+  height: 35px;
+  background: #fff8f0;
+  border-radius: 10px;
+}
+
+.drip {
+  position: absolute;
+  width: 16px;
+  background: #fff8f0;
+  border-radius: 10px;
+  animation: drip 3s infinite ease-in-out;
+}
+
+.drip1 { left: 25px; animation-delay: 0s; }
+.drip2 { left: 75px; animation-delay: 1s; }
+.drip3 { left: 125px; animation-delay: 2s; }
+
+@keyframes drip {
+  0% { height: 8px; top: 25px; }
+  50% { height: 30px; top: 25px; }
+  100% { height: 8px; top: 25px; }
+}
+
+.candle {
+  position: absolute;
+  bottom: 110px;
+  left: 85px;
+  width: 10px;
+  height: 35px;
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+.flame {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 16px;
+  background: radial-gradient(circle, #ffd700 40%, #ff8c00 70%);
+  border-radius: 50%;
+  animation: flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1); opacity: 1; }
+  to   { transform: translateX(-50%) scale(1.15); opacity: 0.85; }
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  top: -10px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh) rotate(720deg); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday Bebina 🎂💖</h1>
+
+<button class="surprise-btn" onclick="showSurprise()">Tap for a Surprise 🎁</button>
+
+<img src="Bebina.jpeg" class="birthday-pic" id="photo">
+  <h1>happy birthday bebina💖 </h1>
+  <h2>may your all dreams come true.
+    and you suceed in your life.
+  </h2>
+
+<div class="cake">
+  <div class="cake-base"></div>
+  <div class="cake-top"></div>
+  <div class="icing">
+    <div class="drip drip1"></div>
+    <div class="drip drip2"></div>
+    <div class="drip drip3"></div>
+  </div>
+  <div class="candle">
+    <div class="flame"></div>
+  </div>
+</div>
+
+<audio id="bdaySong">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function showSurprise() {
+  document.getElementById("photo").style.display = "block";
+  document.getElementById("bdaySong").play();
+  launchConfetti();
+}
+
+function launchConfetti() {
+  for (let i = 0; i < 80; i++) {
+    let confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+    confetti.style.left = Math.random() * window.innerWidth + "px";
+    confetti.style.backgroundColor = `hsl(${Math.random()*360},100%,50%)`;
+    confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 5000);
+  }
+}
+</script>
+
+</body>
+</html>
